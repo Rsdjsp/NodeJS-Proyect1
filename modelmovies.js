@@ -1,396 +1,406 @@
 
 
 const results = [
-    {
-      "adult": false,
-      "backdrop_path": "/kdbLf3aTQsEXqYlH9vA4fzmnSFz.jpg",
-      "genre_ids": [
-        10752,
-        18,
-        28
-      ],
-      "id": 228150,
-      "original_language": "en",
-      "original_title": "Fury",
-      "overview": "In the last months of World War II, as the Allies make their final push in the European theatre, a battle-hardened U.S. Army sergeant named 'Wardaddy' commands a Sherman tank called 'Fury' and its five-man crew on a deadly mission behind enemy lines. Outnumbered and outgunned, Wardaddy and his men face overwhelming odds in their heroic attempts to strike at the heart of Nazi Germany.",
-      "popularity": 170.929,
-      "poster_path": "/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg",
-      "release_date": "2014-10-15",
-      "title": "Fury",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 9691
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/gIjKKa0F4DOTub2CH8TwLe4tPOf.jpg",
-      "genre_ids": [
-        53,
-        28,
-        80
-      ],
-      "id": 156022,
-      "original_language": "en",
-      "original_title": "The Equalizer",
-      "overview": "McCall believes he has put his mysterious past behind him and dedicated himself to beginning a new, quiet life. But when he meets Teri, a young girl under the control of ultra-violent Russian gangsters, he can’t stand idly by – he has to help her. Armed with hidden skills that allow him to serve vengeance against anyone who would brutalize the helpless, McCall comes out of his self-imposed retirement and finds his desire for justice reawakened. If someone has a problem, if the odds are stacked against them, if they have nowhere else to turn, McCall will help. He is The Equalizer.",
-      "popularity": 95.837,
-      "poster_path": "/9u4yW7yPA0BQ2pv9XwiNzItwvp8.jpg",
-      "release_date": "2014-09-24",
-      "title": "The Equalizer",
-      "video": false,
-      "vote_average": 7.2,
-      "vote_count": 7054
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/nlG452icactoT6hbqECbSEVfGII.jpg",
-      "genre_ids": [
-        16,
-        12,
-        35,
-        10751,
-        14
-      ],
-      "id": 228326,
-      "original_language": "en",
-      "original_title": "The Book of Life",
-      "overview": "The journey of Manolo, a young man who is torn between fulfilling the expectations of his family and following his heart. Before choosing which path to follow, he embarks on an incredible adventure that spans three fantastical worlds where he must face his greatest fears.",
-      "popularity": 83.946,
-      "poster_path": "/aotTZos5KswgCryEzx2rlOjFsm1.jpg",
-      "release_date": "2014-10-01",
-      "title": "The Book of Life",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 2114
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/txDX7lBx8bBhF7dRCEfDYmAmdnk.jpg",
-      "genre_ids": [
-        35,
-        10749
-      ],
-      "id": 200727,
-      "original_language": "en",
-      "original_title": "Love, Rosie",
-      "overview": "Since the moment they met at age 5, Rosie and Alex have been best friends, facing the highs and lows of growing up side by side. A fleeting shared moment, one missed opportunity, and the decisions that follow send their lives in completely different directions. As each navigates the complexities of life, love, and everything in between, they always find their way back to each other - but is it just friendship, or something more?",
-      "popularity": 79.2,
-      "poster_path": "/rpD0t7DhzJVadnzgxSYrqljQTL2.jpg",
-      "release_date": "2014-10-16",
-      "title": "Love, Rosie",
-      "video": false,
-      "vote_average": 7.8,
-      "vote_count": 5333
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/7dzngS8pLkGJpyeskCFcjPO9qLF.jpg",
-      "genre_ids": [
-        28,
-        53
-      ],
-      "id": 245891,
-      "original_language": "en",
-      "original_title": "John Wick",
-      "overview": "Ex-hitman John Wick comes out of retirement to track down the gangsters that took everything from him.",
-      "popularity": 78.929,
-      "poster_path": "/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
-      "release_date": "2014-10-22",
-      "title": "John Wick",
-      "video": false,
-      "vote_average": 7.4,
-      "vote_count": 15325
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/x9ezMgOtDPqHatHDvxEG0ILb6Ie.jpg",
-      "genre_ids": [
-        9648,
-        53,
-        18
-      ],
-      "id": 210577,
-      "original_language": "en",
-      "original_title": "Gone Girl",
-      "overview": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
-      "popularity": 75.176,
-      "poster_path": "/qymaJhucquUwjpb8oiqynMeXnID.jpg",
-      "release_date": "2014-10-01",
-      "title": "Gone Girl",
-      "video": false,
-      "vote_average": 7.9,
-      "vote_count": 15398
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/sMAv1YV6bCuy3lnzqXPdrCkIv7e.jpg",
-      "genre_ids": [
-        18,
-        12,
-        28
-      ],
-      "id": 302666,
-      "original_language": "en",
-      "original_title": "10.0 Earthquake",
-      "overview": "Los Angeles is about to be hit by a devastating earthquake, and time is running out to save the city from imminent danger.",
-      "popularity": 72.847,
-      "poster_path": "/conlM8JWEaHnIPiBqTg7ciiiLLX.jpg",
-      "release_date": "2014-10-15",
-      "title": "10.0 Earthquake",
-      "video": false,
-      "vote_average": 4.9,
-      "vote_count": 87
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/isrro0soStk2tSWMsI50lPPhUsU.jpg",
-      "genre_ids": [
-        80,
-        18,
-        9648,
-        53
-      ],
-      "id": 169917,
-      "original_language": "en",
-      "original_title": "A Walk Among the Tombstones",
-      "overview": "Private investigator Matthew Scudder is hired by a drug kingpin to find out who kidnapped and murdered his wife.",
-      "popularity": 72.235,
-      "poster_path": "/bQTHTZezSudf27mMQtedHf1XpgO.jpg",
-      "release_date": "2014-09-18",
-      "title": "A Walk Among the Tombstones",
-      "video": false,
-      "vote_average": 6.3,
-      "vote_count": 2334
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/ffc8RVgAWdm3qNtJ5Eq9RKck9Ft.jpg",
-      "genre_ids": [
-        28,
-        12,
-        14,
-        10770
-      ],
-      "id": 317960,
-      "original_language": "en",
-      "original_title": "Viking Quest",
-      "overview": "Erick, a young Viking warrior, joins forces with a rival clan in order to rescue a kidnapped princess from the great Midgard Serpent. It's a perilous task with a risk far greater than merely their own lives; by rescuing the princess, they might cause Ragnarök - the end of the world.",
-      "popularity": 66.872,
-      "poster_path": "/grma5z8uPKan8IR4DdtXm1g2BWz.jpg",
-      "release_date": "2014-10-07",
-      "title": "Viking Quest",
-      "video": false,
-      "vote_average": 4.6,
-      "vote_count": 24
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/2gKX53lskaCYk9ycXmaDJKqWiy.jpg",
-      "genre_ids": [
-        27
-      ],
-      "id": 250546,
-      "original_language": "en",
-      "original_title": "Annabelle",
-      "overview": "A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists.",
-      "popularity": 64.411,
-      "poster_path": "/yLsuU2P2SpDYFwtZQ7dtfVAf6TE.jpg",
-      "release_date": "2014-10-02",
-      "title": "Annabelle",
-      "video": false,
-      "vote_average": 5.7,
-      "vote_count": 5080
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/sETF4vyjb0FonUJVqgrkaPWqiIf.jpg",
-      "genre_ids": [
-        28
-      ],
-      "id": 289720,
-      "original_language": "en",
-      "original_title": "Outcast",
-      "overview": "A mysterious warrior teams up with the daughter and son of a deposed Chinese Emperor to defeat their cruel Uncle, who seeks their deaths.",
-      "popularity": 51.151,
-      "poster_path": "/efsgCTlofzIuysfokEp7hwQnUho.jpg",
-      "release_date": "2014-09-26",
-      "title": "Outcast",
-      "video": false,
-      "vote_average": 5,
-      "vote_count": 365
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/mRNU6WHEFqoF9RSVo8o0lpprWil.jpg",
-      "genre_ids": [
-        53,
-        28,
-        878
-      ],
-      "id": 218043,
-      "original_language": "en",
-      "original_title": "Left Behind",
-      "overview": "A small group of survivors are left behind after millions of people suddenly vanish during the rapture and the world is plunged into chaos and destruction.",
-      "popularity": 50.706,
-      "poster_path": "/b9Q2WR62yB5Aq0hd6kyRFS9cc3Y.jpg",
-      "release_date": "2014-10-03",
-      "title": "Left Behind",
-      "video": false,
-      "vote_average": 4.2,
-      "vote_count": 1065
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/fRGxZuo7jJUWQsVg9PREb98Aclp.jpg",
-      "genre_ids": [
-        18,
-        10402
-      ],
-      "id": 244786,
-      "original_language": "en",
-      "original_title": "Whiplash",
-      "overview": "Under the direction of a ruthless instructor, a talented young drummer begins to pursue perfection at any cost, even his humanity.",
-      "popularity": 50.264,
-      "poster_path": "/oPxnRhyAIzJKGUEdSiwTJQBa3NM.jpg",
-      "release_date": "2014-10-10",
-      "title": "Whiplash",
-      "video": false,
-      "vote_average": 8.4,
-      "vote_count": 11858
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/zY75ms36ypIQxFAFLtoYfNFuSD7.jpg",
-      "genre_ids": [
-        35,
-        10749
-      ],
-      "id": 277547,
-      "original_language": "en",
-      "original_title": "Playing It Cool",
-      "overview": "A young man meets and instantly falls in love with an engaged woman.",
-      "popularity": 37.86,
-      "poster_path": "/96htqghZlKctNJqDLo2DuC9PEap.jpg",
-      "release_date": "2014-09-26",
-      "title": "Playing It Cool",
-      "video": false,
-      "vote_average": 5.9,
-      "vote_count": 627
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/h6ypHCyuc8ew3AgjXJljy3AsHUE.jpg",
-      "genre_ids": [
-        35
-      ],
-      "id": 239563,
-      "original_language": "en",
-      "original_title": "St. Vincent",
-      "overview": "A young boy whose parents just divorced finds an unlikely friend and mentor in the misanthropic, bawdy, hedonistic, war veteran who lives next door.",
-      "popularity": 35.982,
-      "poster_path": "/x78Z5mAropO7AbcXnCHAj7zycPX.jpg",
-      "release_date": "2014-10-09",
-      "title": "St. Vincent",
-      "video": false,
-      "vote_average": 7.1,
-      "vote_count": 1521
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/7Nq8eqXjE1mpeRlGev6ArjTFoZA.jpg",
-      "genre_ids": [
-        18,
-        80
-      ],
-      "id": 314572,
-      "original_language": "es",
-      "original_title": "El patrón, radiografía de un crimen",
-      "overview": "This incredibly disturbing story follows the exploitation of an apprentice butcher, Hermógenes, and his trial after he murders his boss in broad daylight. Hermógenes, a farmhand from northern Argentina, relocates to Buenos Aires in search of a better life for himself and his young wife, but soon finds himself at the mercy of a corrupt boss. The film is based on a thorough investigation of a real event that happened in Buenos Aires 10 years ago. Almost every scene in the film is inspired by real facts or based on well documented daily practices of the “meat business” and its environment. Both a shocking exposé of unscrupulous practices in the meat industry and a heart-wrenching personal story, El Patrón became one of the most successful Argentine films of 2014.",
-      "popularity": 35.151,
-      "poster_path": "/tqM5b356wYON9VcIKUTOONRUL7P.jpg",
-      "release_date": "2014-10-12",
-      "title": "The Boss: Anatomy of a Crime",
-      "video": false,
-      "vote_average": 7.9,
-      "vote_count": 65
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/f3VyUYrkA5m497z0SNdm7tEbXwT.jpg",
-      "genre_ids": [
-        35,
-        27
-      ],
-      "id": 241843,
-      "original_language": "en",
-      "original_title": "Cooties",
-      "overview": "A mysterious virus hits an isolated elementary school, transforming the kids into a feral swarm of mass savages. An unlikely hero must lead a motley band of teachers in the fight of their lives.",
-      "popularity": 34.417,
-      "poster_path": "/qnH3SCfb3ePz9qM8BvBtq9JLLXY.jpg",
-      "release_date": "2014-10-10",
-      "title": "Cooties",
-      "video": false,
-      "vote_average": 5.9,
-      "vote_count": 558
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/qv1wx1r4i0mvU0Bv9ISowKFkjMS.jpg",
-      "genre_ids": [
-        80,
-        9648,
-        53
-      ],
-      "id": 297961,
-      "original_language": "en",
-      "original_title": "Big Driver",
-      "overview": "Based on a novella from Stephen King, A famous mystery writer sets out for revenge after a brutal attack.",
-      "popularity": 34.143,
-      "poster_path": "/eOGZagunINGbIMMDXSJnzKJ1Ai4.jpg",
-      "release_date": "2014-10-18",
-      "title": "Big Driver",
-      "video": false,
-      "vote_average": 5.7,
-      "vote_count": 159
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/pDqwUJJSaHIv2sxyRYfmYBFeU9C.jpg",
-      "genre_ids": [
-        18,
-        35
-      ],
-      "id": 194662,
-      "original_language": "en",
-      "original_title": "Birdman or (The Unexpected Virtue of Ignorance)",
-      "overview": "A fading actor best known for his portrayal of a popular superhero attempts to mount a comeback by appearing in a Broadway play. As opening night approaches, his attempts to become more altruistic, rebuild his career, and reconnect with friends and family prove more difficult than expected.",
-      "popularity": 33.704,
-      "poster_path": "/umy673Pxug9rJRMoJM1TPHs62rZ.jpg",
-      "release_date": "2014-10-17",
-      "title": "Birdman or (The Unexpected Virtue of Ignorance)",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 11066
-    },
-    {
-      "adult": false,
-      "backdrop_path": "/i0pxyY3hEpaHH8PJ1NFPB0yevlA.jpg",
-      "genre_ids": [
-        18,
-        10749
-      ],
-      "id": 239571,
-      "original_language": "en",
-      "original_title": "The Best of Me",
-      "overview": "A pair of former high school sweethearts reunite after many years when they return to visit their small hometown.",
-      "popularity": 33.48,
-      "poster_path": "/8QBWh2Iwf1iUfsu2NfCue2V1hpV.jpg",
-      "release_date": "2014-10-15",
-      "title": "The Best of Me",
-      "video": false,
-      "vote_average": 7.5,
-      "vote_count": 2227
-    }
-  ]
+  {
+    "adult": false,
+    "backdrop_path": "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
+    "genre_ids": [
+      28,
+      12,
+      878
+    ],
+    "id": 634649,
+    "original_language": "en",
+    "original_title": "Spider-Man: No Way Home",
+    "overview": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+    "popularity": 7902.493,
+    "poster_path": "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+    "release_date": "2021-12-15",
+    "title": "Spider-Man: No Way Home",
+    "video": false,
+    "vote_average": 8.4,
+    "vote_count": 7810
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+    "genre_ids": [
+      16,
+      35,
+      10751,
+      14
+    ],
+    "id": 568124,
+    "original_language": "en",
+    "original_title": "Encanto",
+    "overview": "The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family with a unique gift from super strength to the power to heal—every child except one, Mirabel. But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family's last hope.",
+    "popularity": 3218.518,
+    "poster_path": "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
+    "release_date": "2021-11-24",
+    "title": "Encanto",
+    "video": false,
+    "vote_average": 7.8,
+    "vote_count": 4351
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/6qkeXdIEwqOuOWuxsomwnin2RdD.jpg",
+    "genre_ids": [
+      28,
+      12,
+      53,
+      10752
+    ],
+    "id": 476669,
+    "original_language": "en",
+    "original_title": "The King's Man",
+    "overview": "As a collection of history's worst tyrants and criminal masterminds gather to plot a war to wipe out millions, one man must race against time to stop them.",
+    "popularity": 4961.342,
+    "poster_path": "/aq4Pwv5Xeuvj6HZKtxyd23e6bE9.jpg",
+    "release_date": "2021-12-22",
+    "title": "The King's Man",
+    "video": false,
+    "vote_average": 7.2,
+    "vote_count": 942
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/c6H7Z4u73ir3cIoCteuhJh7UCAR.jpg",
+    "genre_ids": [
+      28,
+      12,
+      14,
+      878
+    ],
+    "id": 524434,
+    "original_language": "en",
+    "original_title": "Eternals",
+    "overview": "The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.",
+    "popularity": 2594.929,
+    "poster_path": "/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg",
+    "release_date": "2021-11-03",
+    "title": "Eternals",
+    "video": false,
+    "vote_average": 7.2,
+    "vote_count": 4315
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/eVSa4TpyXbOdk9fXSD6OcORJGtv.jpg",
+    "genre_ids": [
+      53
+    ],
+    "id": 803114,
+    "original_language": "en",
+    "original_title": "The Requin",
+    "overview": "A couple on a romantic getaway find themselves stranded at sea when a tropical storm sweeps away their villa. In order to survive, they are forced to fight the elements, while sharks circle below.",
+    "popularity": 2499.719,
+    "poster_path": "/i0z8g2VRZP3dhVvvSMilbOZMKqR.jpg",
+    "release_date": "2022-01-28",
+    "title": "The Requin",
+    "video": false,
+    "vote_average": 4.4,
+    "vote_count": 43
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/eG0oOQVsniPAuecPzDD1B1gnYWy.jpg",
+    "genre_ids": [
+      16,
+      35,
+      12,
+      10751
+    ],
+    "id": 774825,
+    "original_language": "en",
+    "original_title": "The Ice Age Adventures of Buck Wild",
+    "overview": "The fearless one-eyed weasel Buck teams up with mischievous possum brothers Crash & Eddie as they head off on a new adventure into Buck's home: The Dinosaur World.",
+    "popularity": 2429.532,
+    "poster_path": "/zzXFM4FKDG7l1ufrAkwQYv2xvnh.jpg",
+    "release_date": "2022-01-28",
+    "title": "The Ice Age Adventures of Buck Wild",
+    "video": false,
+    "vote_average": 7.3,
+    "vote_count": 532
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/qBLEWvJNVsehJkEJqIigPsWyBse.jpg",
+    "genre_ids": [
+      16,
+      10751,
+      14,
+      35,
+      12
+    ],
+    "id": 585083,
+    "original_language": "en",
+    "original_title": "Hotel Transylvania: Transformania",
+    "overview": "When Van Helsing's mysterious invention, the \"Monsterfication Ray,\" goes haywire, Drac and his monster pals are all transformed into humans, and Johnny becomes a monster. In their new mismatched bodies, Drac and Johnny must team up and race across the globe to find a cure before it's too late, and before they drive each other crazy.",
+    "popularity": 2246.531,
+    "poster_path": "/teCy1egGQa0y8ULJvlrDHQKnxBL.jpg",
+    "release_date": "2022-01-13",
+    "title": "Hotel Transylvania: Transformania",
+    "video": false,
+    "vote_average": 7.5,
+    "vote_count": 1725
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/8pgKccb5PfE1kWB9qqiXJem83VC.jpg",
+    "genre_ids": [
+      28,
+      53
+    ],
+    "id": 522016,
+    "original_language": "en",
+    "original_title": "The 355",
+    "overview": "A group of top female agents from American, British, Chinese, Columbian and German  government agencies are drawn together to try and stop an organization from acquiring a deadly weapon to send the world into chaos.",
+    "popularity": 2024.923,
+    "poster_path": "/uQt2dJFMnJmAp9zLAWNfGilK0BW.jpg",
+    "release_date": "2022-01-05",
+    "title": "The 355",
+    "video": false,
+    "vote_average": 6.1,
+    "vote_count": 215
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/xHRabofjmMGoIV3mb6xgy4nwOcS.jpg",
+    "genre_ids": [
+      27
+    ],
+    "id": 801071,
+    "original_language": "en",
+    "original_title": "The Jack in the Box: Awakening",
+    "overview": "When a vintage Jack-in-the-box is opened by a dying woman, she enters into a deal with the demon within that would see her illness cured in return for helping it claim six innocent victims.",
+    "popularity": 1622.571,
+    "poster_path": "/3Ib8vlWTrAKRrTWUrTrZPOMW4jp.jpg",
+    "release_date": "2022-01-03",
+    "title": "The Jack in the Box: Awakening",
+    "video": false,
+    "vote_average": 5.7,
+    "vote_count": 30
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/dK12GIdhGP6NPGFssK2Fh265jyr.jpg",
+    "genre_ids": [
+      28,
+      35,
+      80,
+      53
+    ],
+    "id": 512195,
+    "original_language": "en",
+    "original_title": "Red Notice",
+    "overview": "An Interpol-issued Red Notice is a global alert to hunt and capture the world's most wanted. But when a daring heist brings together the FBI's top profiler and two rival criminals, there's no telling what will happen.",
+    "popularity": 1793.425,
+    "poster_path": "/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg",
+    "release_date": "2021-11-04",
+    "title": "Red Notice",
+    "video": false,
+    "vote_average": 6.8,
+    "vote_count": 3002
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+    "genre_ids": [
+      14,
+      35,
+      12
+    ],
+    "id": 425909,
+    "original_language": "en",
+    "original_title": "Ghostbusters: Afterlife",
+    "overview": "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+    "popularity": 1572.988,
+    "poster_path": "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
+    "release_date": "2021-11-11",
+    "title": "Ghostbusters: Afterlife",
+    "video": false,
+    "vote_average": 7.7,
+    "vote_count": 1992
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/4rsomWxlqnHt3muGYK06auhOib6.jpg",
+    "genre_ids": [
+      10749,
+      18
+    ],
+    "id": 818647,
+    "original_language": "es",
+    "original_title": "A través de mi ventana",
+    "overview": "Raquel's longtime crush on her next-door neighbor turns into something more when he starts developing feelings for her, despite his family's objections.",
+    "popularity": 1608.202,
+    "poster_path": "/6gg7fvKc1ZxP9yCczweSxIGYp4S.jpg",
+    "release_date": "2022-02-04",
+    "title": "Through My Window",
+    "video": false,
+    "vote_average": 7.9,
+    "vote_count": 1028
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/tutaKitJJIaqZPyMz7rxrhb4Yxm.jpg",
+    "genre_ids": [
+      35,
+      16,
+      10751,
+      10402
+    ],
+    "id": 438695,
+    "original_language": "en",
+    "original_title": "Sing 2",
+    "overview": "Buster and his new cast now have their sights set on debuting a new show at the Crystal Tower Theater in glamorous Redshore City. But with no connections, he and his singers must sneak into the Crystal Entertainment offices, run by the ruthless wolf mogul Jimmy Crystal, where the gang pitches the ridiculous idea of casting the lion rock legend Clay Calloway in their show. Buster must embark on a quest to find the now-isolated Clay and persuade him to return to the stage.",
+    "popularity": 1597.43,
+    "poster_path": "/aWeKITRFbbwY8txG5uCj4rMCfSP.jpg",
+    "release_date": "2021-12-01",
+    "title": "Sing 2",
+    "video": false,
+    "vote_average": 8.2,
+    "vote_count": 1860
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/p3ajeXwrCczDh8eYsT8ryTvvfwm.jpg",
+    "genre_ids": [
+      28,
+      53,
+      80,
+      18
+    ],
+    "id": 766907,
+    "original_language": "en",
+    "original_title": "American Siege",
+    "overview": "An ex-NYPD officer-turned-sheriff of a small rural Georgia town has to contend with a gang of thieves who have taken a wealthy doctor hostage.",
+    "popularity": 1416.063,
+    "poster_path": "/xuclYqDtK69WIJUBgbIkHOpMvGi.jpg",
+    "release_date": "2022-01-07",
+    "title": "American Siege",
+    "video": false,
+    "vote_average": 5.1,
+    "vote_count": 29
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/srJ7haOhfykoPOYPQrstOaFem08.jpg",
+    "genre_ids": [
+      28
+    ],
+    "id": 811592,
+    "original_language": "en",
+    "original_title": "One Shot",
+    "overview": "An elite squad of Navy SEALs, on a covert mission to transport a prisoner off a CIA black site island prison, are trapped when insurgents attack while trying to rescue the same prisoner.",
+    "popularity": 1346.659,
+    "poster_path": "/3OXiTjU30gWtqxmx4BU9RVp2OTv.jpg",
+    "release_date": "2021-11-05",
+    "title": "One Shot",
+    "video": false,
+    "vote_average": 6.7,
+    "vote_count": 260
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg",
+    "genre_ids": [
+      878,
+      28,
+      12
+    ],
+    "id": 624860,
+    "original_language": "en",
+    "original_title": "The Matrix Resurrections",
+    "overview": "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
+    "popularity": 1410.537,
+    "poster_path": "/8c4a8kE7PizaGQQnditMmI1xbRp.jpg",
+    "release_date": "2021-12-16",
+    "title": "The Matrix Resurrections",
+    "video": false,
+    "vote_average": 6.8,
+    "vote_count": 2910
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/vIgyYkXkg6NC2whRbYjBD7eb3Er.jpg",
+    "genre_ids": [
+      878,
+      28,
+      12
+    ],
+    "id": 580489,
+    "original_language": "en",
+    "original_title": "Venom: Let There Be Carnage",
+    "overview": "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+    "popularity": 1353.033,
+    "poster_path": "/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+    "release_date": "2021-09-30",
+    "title": "Venom: Let There Be Carnage",
+    "video": false,
+    "vote_average": 7.1,
+    "vote_count": 6304
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/t4To8feUSysyBs4tlBAbXIrKlCv.jpg",
+    "genre_ids": [
+      28,
+      53
+    ],
+    "id": 860623,
+    "original_language": "en",
+    "original_title": "Last Man Down",
+    "overview": "After civilization succumbs to a deadly pandemic and his wife is murdered, a special forces soldier abandons his duty and becomes a hermit in the Nordic wilderness. Years later, a wounded woman appears on his doorstep. She's escaped from a lab and her pursuers believe her blood is the key to a worldwide cure. He's hesitant to get involved, but all doubts are cast aside when he discovers her pursuer is none other than Commander Stone, the man that murdered his wife some years ago.",
+    "popularity": 1293.497,
+    "poster_path": "/4B7liCxNCZIZGONmAMkCnxVlZQV.jpg",
+    "release_date": "2021-10-19",
+    "title": "Last Man Down",
+    "video": false,
+    "vote_average": 6.4,
+    "vote_count": 240
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/o76ZDm8PS9791XiuieNB93UZcRV.jpg",
+    "genre_ids": [
+      27,
+      28,
+      878
+    ],
+    "id": 460458,
+    "original_language": "en",
+    "original_title": "Resident Evil: Welcome to Raccoon City",
+    "overview": "Once the booming home of pharmaceutical giant Umbrella Corporation, Raccoon City is now a dying Midwestern town. The company’s exodus left the city a wasteland…with great evil brewing below the surface. When that evil is unleashed, the townspeople are forever…changed…and a small group of survivors must work together to uncover the truth behind Umbrella and make it through the night.",
+    "popularity": 1353.504,
+    "poster_path": "/7uRbWOXxpWDMtnsd2PF3clu65jc.jpg",
+    "release_date": "2021-11-24",
+    "title": "Resident Evil: Welcome to Raccoon City",
+    "video": false,
+    "vote_average": 6.2,
+    "vote_count": 1197
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/ilty8eu65u6vCJpyMva9ele8Qtm.jpg",
+    "genre_ids": [
+      35,
+      10749,
+      10402
+    ],
+    "id": 615904,
+    "original_language": "en",
+    "original_title": "Marry Me",
+    "overview": "Explores the possibilities of what might happen when a superstar marries an average Joe as a joke and discovers that perhaps there are no accidents.",
+    "popularity": 2081.447,
+    "poster_path": "/ko1JVbGj4bT8IhCWqjBQ6ZtF2t.jpg",
+    "release_date": "2022-02-09",
+    "title": "Marry Me",
+    "video": false,
+    "vote_average": 7.1,
+    "vote_count": 95
+  }
+]
 
 module.exports = results

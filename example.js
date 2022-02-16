@@ -16,6 +16,8 @@ const results = movies.map((movie) => {
   };
 });
 
+
+
 newMovies.push(...results);
 
-console.log(newMovies);
+console.log(JSON.stringify(newMovies));
