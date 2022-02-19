@@ -2,29 +2,46 @@ const MovieModel = require("../models/movieModel");
 
 class Movies {
   async get(id) {
-    const movie = await MovieModel.findById(id)
-    return movie
+    const movie = await MovieModel.findById(id);
+    return movie;
   }
 
   async getAll() {
     // find devuelve varios elementos
-    const movies = await MovieModel.find()
-    return movies
+    const movies = await MovieModel.find();
+    return movies;
   }
 
   async create(data) {
-    const movie = await MovieModel.create(data)
-    return movie
+    const movie = await MovieModel.create(data);
+    return movie;
   }
 
-  async update(id, data) {
-    const movie = await MovieModel.findByIdAndUpdate(id, data, { new: true })
-    return movie
+  async update(id, data, userId) {
+    const film = await MovieModel.findById(id);
+    console.log(film);
+    if (film.creator === userId) {
+      const movie = await MovieModel.findByIdAndUpdate(id, data, { new: true });
+      return { status: "succsess", message: "movie updated successfully" };
+    } else {
+      return {
+        status: "error",
+        message: "You aren't the movie creator",
+      };
+    }
   }
 
-  async delete(id) {
-    const movie = await MovieModel.findByIdAndDelete(id)
-    return movie
+  async delete(id, userId) {
+    const film = await MovieModel.findById(id);
+    if (film.creator === userId) {
+      const movie = await MovieModel.findByIdAndDelete(id);
+      return { status: "succsess", message: "movie deleted successfully" };
+    } else {
+      return {
+        status: "error",
+        message: "You aren't the movie creator",
+      };
+    }
   }
 }
 

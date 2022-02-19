@@ -14,18 +14,25 @@ class Auth {
     return hash;
   }
 
+  getToken(user) {
+    const userId = user._id.toString();
+    const data = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      role: user.role ? user.role : 0,
+    };
+    const token = jwt.sign(data, jwt_secret, { expiresIn: "1d" });
+    return { success: true, data, token, userId };
+  }
+
   async login(email, password) {
     const user = await this.users.getByEmail(email);
-    const correctPassword = await bcrypt.compare(password, user.password);
-    if (user && correctPassword) {
-      const data = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        role: user.role ? user.role : 0,
-      };
-      const token = jwt.sign(data, jwt_secret, { expiresIn: "1d" });
-      return { success: true, data, token };
+    if (user) {
+      const correctPassword = await bcrypt.compare(password, user.password);
+      if (correctPassword) {
+        return this.getToken(user);
+      }
     }
 
     return { success: false, message: "Las credenciales no coinciden" };
@@ -37,14 +44,23 @@ class Auth {
     } else {
       userData.password = await this.hashPassword(userData.password);
       const user = await this.users.create(userData);
-      const data = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-      };
-      const token = jwt.sign(data, jwt_secret, { expiresIn: "1d" });
-      return { succes: true, data, token };
+      return this.getToken(user);
     }
+  }
+
+  async loginGoogle(profile) {
+    let user = await this.users.getByEmail(profile.email);
+    if (!user) {
+      user = await this.users.create({
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        email: profile.emails[0].value,
+        role: 0,
+        provider: profile.provider,
+        idGoogle: profile.id,
+      });
+    }
+    return this.getToken(user);
   }
 }
 

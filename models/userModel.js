@@ -9,9 +9,15 @@ const userSchema = new Schema({
     city: String,
     email: String,
     password: String,
-    role: Number
+    role: Number,
+    provider: String,
+    idGoogle: String
 })
 
 const UserModel = mongoose.model("users", userSchema)
 
 module.exports = UserModel
+
+
+
+

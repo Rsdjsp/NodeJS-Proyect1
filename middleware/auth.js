@@ -33,6 +33,7 @@ const validateRole = (req, res, next) => {
 const verifyToken = (req, res, next) => {
   const auth = req.header("Authorization");
   const cookies = req.cookies;
+  
 
   if (!auth && !cookies.token) {
     return res
@@ -63,5 +64,15 @@ const isEditor = (req, res, next) => {
   req.neededRole = 1;
   verifyToken(req, res, next);
 };
+
+
+
+
+
+
+
+
+
+
 
 module.exports = { isRegular, isAdmin, isEditor };

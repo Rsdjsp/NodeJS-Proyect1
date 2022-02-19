@@ -7,10 +7,11 @@ const movieSchema = new Schema({
     poster: String,
     background: String,
     review: String,
-    date: String,
+    date: Date,
     rating: Number,
     movie_id: Number,
-    language: String
+    language: String,
+    creator: String
 })
 
 
