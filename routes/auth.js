@@ -12,13 +12,13 @@ function auth(app, passport) {
     return res
       .cookie("userId", response.userId, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
       })
       .cookie("token", response.token, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
       })
       .json(response);
   });
@@ -31,13 +31,13 @@ function auth(app, passport) {
     return res
       .cookie("userId", response.userId, {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
       })
       .cookie("token", response.token, {
         httpOnly: true,
-        // sameSite: "none",
-        // secure: true,
+        sameSite: "none",
+        secure: true,
       })
       .json(response);
   });
@@ -46,14 +46,14 @@ function auth(app, passport) {
     return res
       .cookie("userId", "", {
         httpOnly: true,
-        // secure: true,
-        // sameSite: "none",
+        secure: true,
+        sameSite: "none",
         expires: new Date(),
       })
       .cookie("token", "", {
         httpOnly: true,
-        // sameSite: "none",
-        // secure: true,
+        sameSite: "none",
+        secure: true,
         expires: new Date(),
       })
       .json({ loggedOut: true });
