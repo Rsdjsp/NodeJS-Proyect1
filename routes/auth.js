@@ -39,7 +39,7 @@ function auth(app) {
         secure: true,
         sameSite: "none",
       })
-      .json(response);
+      .json(response.data);
   });
 
   router.post("/signup", async (req, res) => {
@@ -58,7 +58,7 @@ function auth(app) {
         sameSite: "none",
         secure: true,
       })
-      .json(response);
+      .json(response.data);
   });
 
   router.post("/logout", (req, res) => {
@@ -101,7 +101,7 @@ function auth(app) {
           sameSite: "none",
           secure: true,
         })
-        .redirect("http://127.0.0.1:5500/Frontend/index.html");
+        .redirect("https://movies-341014.ue.r.appspot.com/");
     }
   );
 

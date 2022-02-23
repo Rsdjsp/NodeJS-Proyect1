@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const cookies = require("cookie-parser");
+const session = require("express-session")
 
-const { port } = require("./database/credentials");
+const { port,session_secret } = require("./database/credentials");
 
 //Trayendo conexión a BD
 const { connection } = require("./database/conection");
@@ -25,6 +26,14 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(session({
+  secret: session_secret,
+  resave: false,
+  saveUninitialized: true
+}))
+
+
 
 app.use(cookies());
 
