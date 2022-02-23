@@ -17,7 +17,9 @@ class Auth {
   getToken(user) {
     const userId = user._id.toString();
     const data = {
+      id:user.id,
       firstName: user.firstName,
+      displayName: user.displayName,
       lastName: user.lastName,
       email: user.email,
       role: user.role ? user.role : 0,
@@ -48,16 +50,17 @@ class Auth {
     }
   }
 
-  async loginGoogle(profile) {
+  async loginProvider(profile) {
     let user = await this.users.getByEmail(profile.email);
     if (!user) {
       user = await this.users.create({
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
-        email: profile.emails[0].value,
+        firstName: profile.name?.givenName,
+        lastName: profile.name?.familyName,
+        email: profile.emails ? profile.emails[0].value : undefined,
+        displayname:profile.displayname ? profile.displayname: undefined,
         role: 0,
         provider: profile.provider,
-        idGoogle: profile.id,
+        idProvider: profile.id,
       });
     }
     return this.getToken(user);

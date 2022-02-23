@@ -50,10 +50,7 @@ function movies(app) {
     return res.status(201).json(review);
   });
 
-  router.get("/:id/reviews", async (req, res) => {
-    const review = await reviewService.getAll();
-    return res.status(200).json(review);
-  });
+  
   router.get("/:id/reviews/:reviewId", async (req, res) => {
     const {reviewId} = req.params
     const review = await reviewService.getOne(reviewId);
