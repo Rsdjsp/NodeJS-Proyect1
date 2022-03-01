@@ -3,11 +3,12 @@ const {
   useGoogleStrategy,
   useFacebookStrategy,
   useGitHubStrategy,
-  useTwitterStrategy,
+  
 } = require("../middleware/auth");
 const passport = require("passport");
 
 const Auth = require("../services/auth");
+const tokenToCookie = require("../helper/tokenToCookie");
 
 function auth(app) {
   const router = express.Router();
@@ -19,7 +20,7 @@ function auth(app) {
   passport.use(useGoogleStrategy());
   passport.use(useFacebookStrategy());
   passport.use(useGitHubStrategy());
-  // passport.use(useTwitterStrategy());
+ 
 
   passport.serializeUser((user, done) => {
     done(null, user);
@@ -28,37 +29,14 @@ function auth(app) {
   router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const response = await authService.login(email, password);
-    return res
-      .cookie("userId", response.userId, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      })
-      .cookie("token", response.token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      })
-      .json(response.data);
+    return tokenToCookie(res, response);
   });
 
   router.post("/signup", async (req, res) => {
     const user = req.body;
     !user.role && (user.role = 0);
     const response = await authService.signup(user);
-
-    return res
-      .cookie("userId", response.userId, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      })
-      .cookie("token", response.token, {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-      })
-      .json(response.data);
+    return tokenToCookie(res, response);
   });
 
   router.post("/logout", (req, res) => {
@@ -90,18 +68,7 @@ function auth(app) {
     passport.authenticate("google"),
     async (req, res) => {
       const response = await authService.loginProvider(req.user.profile);
-      return res
-        .cookie("userId", response.userId, {
-          httpOnly: true,
-          secure: true,
-          sameSite: "none",
-        })
-        .cookie("token", response.token, {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-        })
-        .redirect("https://movies-341014.ue.r.appspot.com/");
+      return tokenToCookie(res, response);
     }
   );
 
@@ -112,13 +79,7 @@ function auth(app) {
     async (req, res) => {
       console.log(req.user.profile);
       const response = await authService.loginProvider(req.user.profile);
-      return res
-        .cookie("token", response.token, {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-        })
-        .json(response);
+      return tokenToCookie(res, response);
     }
   );
 
@@ -129,29 +90,7 @@ function auth(app) {
     async (req, res) => {
       console.log(req.user.profile);
       const response = await authService.loginProvider(req.user.profile);
-      return res
-        .cookie("token", response.token, {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-        })
-        .json(response);
-    }
-  );
-  router.get("/twitter", passport.authenticate("twitter"));
-  router.get(
-    "/twitter/callback",
-    passport.authenticate("twitter"),
-    async (req, res) => {
-      console.log(req.user.profile);
-      const response = await authService.loginProvider(req.user.profile);
-      return res
-        .cookie("token", response.token, {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-        })
-        .json(response);
+      return tokenToCookie(res, response);
     }
   );
 }

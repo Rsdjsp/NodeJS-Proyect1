@@ -1,5 +1,6 @@
 const express = require("express");
 const Reviews = require("../services/reviews");
+const { isRegular} = require("../middleware/auth");
 
 
 function reviews(app) {
@@ -8,7 +9,7 @@ function reviews(app) {
     
     app.use("/reviews", router);
 
-    router.get("/", async (req, res) => {
+    router.get("/",isRegular, async (req, res) => {
         const review = await reviewService.getAll();
         return res.status(200).json(review);
     });

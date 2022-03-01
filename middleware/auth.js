@@ -2,24 +2,17 @@ const jwt = require("jsonwebtoken");
 const {
   jwt_secret,
   oauth_client_id,
-  oauth_callback_url,
   oauth_client_secret,
   facebook_app_id,
   facebook_app_secret,
-  facebook_callback_url,
   github_client_id,
   github_client_secret,
-  github_callback_url,
-  twitter_callback_url,
-  twitter_consumer_id,
-  twitter_consumer_secret,
-  
+  callback_url
 } = require("../database/credentials");
 
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
-// const TwitterStrategy = require("passport-twitter").Strategy;
 
 const handleToken = (token, req, res, next) => {
   try {
@@ -83,10 +76,10 @@ const useGoogleStrategy = () => {
     {
       clientID: oauth_client_id,
       clientSecret: oauth_client_secret,
-      callbackURL: oauth_callback_url,
+      callbackURL: callback_url + "/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
-      //console.log({accessToken,refreshToken,profile})
+     
       done(null, { profile });
     }
   );
@@ -97,7 +90,7 @@ const useFacebookStrategy = () => {
     {
       clientID: facebook_app_id,
       clientSecret: facebook_app_secret,
-      callbackURL: facebook_callback_url,
+      callbackURL: callback_url + "/facebook/callback",
     },
     (accessToken, refreshToken, profile, done) => {
       //console.log({accessToken,refreshToken,profile})
@@ -111,7 +104,7 @@ const useGitHubStrategy = () => {
     {
       clientID: github_client_id,
       clientSecret: github_client_secret,
-      callbackURL: github_callback_url,
+      callbackURL: callback_url + "/github/callback",
     },
     (accessToken, refreshToken, profile, done) => {
       //console.log({accessToken,refreshToken,profile})
@@ -119,19 +112,6 @@ const useGitHubStrategy = () => {
     }
   );
 };
-// const useTwitterStrategy = () => {
-//   return new TwitterStrategy(
-//     {
-//       consumerKey: twitter_consumer_id,
-//       consumerSecret: twitter_consumer_secret,
-//       callbackURL: twitter_callback_url,
-//     },
-//     (accessToken, refreshToken, profile, done) => {
-//       //console.log({accessToken,refreshToken,profile})
-//       done(null, { profile });
-//     }
-//   );
-// };
 
 module.exports = {
   isRegular,
@@ -140,5 +120,4 @@ module.exports = {
   useGoogleStrategy,
   useFacebookStrategy,
   useGitHubStrategy,
-  // useTwitterStrategy,
 };

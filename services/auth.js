@@ -2,6 +2,7 @@ const Users = require("./users");
 const jwt = require("jsonwebtoken");
 const { jwt_secret } = require("../database/credentials");
 const bcrypt = require("bcrypt");
+const sendEmail = require("../libs/email")
 
 class Auth {
   constructor() {
@@ -17,19 +18,22 @@ class Auth {
   getToken(user) {
     const userId = user._id.toString();
     const data = {
-      id:user.id,
+      id: user.id,
       firstName: user.firstName,
       displayName: user.displayName,
       lastName: user.lastName,
       email: user.email,
       role: user.role ? user.role : 0,
     };
-    const token = jwt.sign(data, jwt_secret, { expiresIn: "1d" });
+    const token = jwt.sign(data, jwt_secret, { expiresIn: "7d" });
     return { success: true, data, token, userId };
   }
 
   async login(email, password) {
     const user = await this.users.getByEmail(email);
+    if (!email || !password) {
+      return { success: false, message: "Ingresa credenciales" };
+    }
     if (user) {
       const correctPassword = await bcrypt.compare(password, user.password);
       if (correctPassword) {
@@ -46,6 +50,7 @@ class Auth {
     } else {
       userData.password = await this.hashPassword(userData.password);
       const user = await this.users.create(userData);
+      await sendEmail(userData.email, "Registro exitoso", "Bienvenido a la aplicación", "<h1><em>Bienvenido</em> a la aplicación</h1>")
       return this.getToken(user);
     }
   }
@@ -57,7 +62,7 @@ class Auth {
         firstName: profile.name?.givenName,
         lastName: profile.name?.familyName,
         email: profile.emails ? profile.emails[0].value : undefined,
-        displayname:profile.displayname ? profile.displayname: undefined,
+        displayname: profile.displayname ? profile.displayname : undefined,
         role: 0,
         provider: profile.provider,
         idProvider: profile.id,
