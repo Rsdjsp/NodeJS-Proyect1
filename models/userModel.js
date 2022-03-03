@@ -12,7 +12,8 @@ const userSchema = new Schema({
     password: String,
     role: Number,
     provider: String,
-    idProvider: String
+    idProvider: String,
+    validateUser: Boolean
 })
 
 const UserModel = mongoose.model("users", userSchema)

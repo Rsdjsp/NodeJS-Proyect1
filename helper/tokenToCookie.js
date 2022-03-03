@@ -14,7 +14,7 @@ function tokenToCookie(res, response) {
         secure: true,
         sameSite: "none",
       })
-      .json(response.data);
+      .json(response);
   }
 }
 

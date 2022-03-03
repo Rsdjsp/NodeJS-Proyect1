@@ -9,10 +9,26 @@ function reviews(app) {
     
     app.use("/reviews", router);
 
-    router.get("/",isRegular, async (req, res) => {
+    router.get("/", async (req, res) => {
         const review = await reviewService.getAll();
         return res.status(200).json(review);
     });
+
+
+    router.put("/:reviewId", async (req, res) => {
+        const { id, reviewId } = req.params;
+        const { userId } = req.cookies;
+        const review = await reviewService.update(reviewId, userId, id, req.body);
+        return res.status(200).json(review);
+    });
+
+    router.delete("/:reviewId", async (req, res) => {
+        const { id, reviewId } = req.params;
+        const { userId } = req.cookies;
+        const review = await reviewService.delete(reviewId, userId, id);
+        return res.status(200).json(review);
+    });
+
 }
 
 module.exports = reviews;

@@ -2,7 +2,8 @@ const Users = require("./users");
 const jwt = require("jsonwebtoken");
 const { jwt_secret } = require("../database/credentials");
 const bcrypt = require("bcrypt");
-const sendEmail = require("../libs/email")
+const sendEmail = require("../libs/email");
+const { email_redirect_url } = require("../database/credentials");
 
 class Auth {
   constructor() {
@@ -24,6 +25,7 @@ class Auth {
       lastName: user.lastName,
       email: user.email,
       role: user.role ? user.role : 0,
+      validateUser: user.validateUser ? user.validateUser : false,
     };
     const token = jwt.sign(data, jwt_secret, { expiresIn: "7d" });
     return { success: true, data, token, userId };
@@ -50,7 +52,14 @@ class Auth {
     } else {
       userData.password = await this.hashPassword(userData.password);
       const user = await this.users.create(userData);
-      await sendEmail(userData.email, "Registro exitoso", "Bienvenido a la aplicación", "<h1><em>Bienvenido</em> a la aplicación</h1>")
+      const userToken = jwt.sign(userData, jwt_secret, { expiresIn: "1d" });
+      await sendEmail(
+        userData.email,
+        "Registro exitoso",
+        "Bienvenido a la aplicación",
+        `<div><h1><em>Bienvenido</em> a la aplicación</h1><br/><a href="${email_redirect_url}/${userData.email}/${userToken}"><button >Verify Email</button></a><br/><p>this links expires in 24 hours</p></div>`
+      );
+
       return this.getToken(user);
     }
   }
@@ -66,9 +75,21 @@ class Auth {
         role: 0,
         provider: profile.provider,
         idProvider: profile.id,
+        validateUser: profile.validateUser,
       });
     }
     return this.getToken(user);
+  }
+
+  async validateUser(email, userToken) {
+    if (!userToken) {
+      return { success: false, message: "token expired" };
+    } else {
+      const user = await this.users.getByEmail(email);
+      user.validateUser = true;
+      await this.users.update(user._id, user);
+      return { success: true, message: "user active" }
+    }
   }
 }
 

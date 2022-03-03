@@ -1,5 +1,5 @@
 const express = require("express");
-const { isEditor } = require("../middleware/auth");
+const { isEditor, isRegular } = require("../middleware/auth");
 const Movies = require("../services/movies");
 const Reviews = require("../services/reviews");
 
@@ -40,7 +40,7 @@ function movies(app) {
     return res.status(200).json(movie);
   });
 
-  router.post("/:id/reviews", async (req, res) => {
+  router.post("/:id/reviews",isRegular, async (req, res) => {
     const { userId } = req.cookies;
     const { id } = req.params;
     req.body.creator = userId;
@@ -56,19 +56,7 @@ function movies(app) {
     return res.status(200).json(review);
   });
 
-  router.put("/:id/reviews/:reviewId", async (req, res) => {
-    const { id, reviewId } = req.params;
-    const { userId } = req.cookies;
-    const review = await reviewService.update(reviewId, userId, id, req.body);
-    return res.status(200).json(review);
-  });
-
-  router.delete("/:id/reviews/:reviewId", async (req, res) => {
-    const { id, reviewId } = req.params;
-    const { userId } = req.cookies;
-    const review = await reviewService.delete(reviewId, userId, id);
-    return res.status(200).json(review);
-  });
+ 
 }
 
 module.exports = movies;

@@ -24,6 +24,10 @@ const config = {
   email_secure: process.env.EMAIL_SECURE,
   email_user: process.env.EMAIL_USER,
   email_password: process.env.EMAIL_PASSWORD,
+  email_redirect_url:
+    process.env.NODE_ENV === "dev"
+      ? process.env.EMAIL_DEV_URL_REDIRECT
+      : process.env.EMAIL_URL_REDIRECT,
 };
 
 module.exports = config;
