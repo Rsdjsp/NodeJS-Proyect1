@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const cookies = require("cookie-parser");
-const session = require("express-session")
+const session = require("express-session");
 
-const { port,session_secret } = require("./database/credentials");
+const { port, session_secret, mode } = require("./database/credentials");
+
+console.log(mode);
 
 //Trayendo conexión a BD
 const { connection } = require("./database/conection");
@@ -22,18 +24,21 @@ app.use(express.text());
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5500", "http://localhost:3000"],
+    origin: ['http://127.0.0.1:5500', 'http://localhost:3000'],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
     credentials: true,
   })
 );
 
-app.use(session({
-  secret: session_secret,
-  resave: false,
-  saveUninitialized: true
-}))
-
-
+app.use(
+  session({
+    secret: session_secret,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(cookies());
 

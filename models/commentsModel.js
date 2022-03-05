@@ -6,7 +6,9 @@ const commentSchema = new Schema({
     comment: String,
     creator: String,
     date: Date,
-    movieId: String
+    movieId: String,
+    stars: Number,
+    userName: String
 })
 
 const CommentModel = mongoose.model("comment", commentSchema)

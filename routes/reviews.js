@@ -22,10 +22,16 @@ function reviews(app) {
         return res.status(200).json(review);
     });
 
-    router.delete("/:reviewId", async (req, res) => {
+    router.delete("/:id/:reviewId", async (req, res) => {
         const { id, reviewId } = req.params;
         const { userId } = req.cookies;
         const review = await reviewService.delete(reviewId, userId, id);
+        return res.status(200).json(review);
+    });
+
+    router.get("/:reviewId", async (req, res) => {
+        const { reviewId } = req.params;
+        const review = await reviewService.getOne(reviewId);
         return res.status(200).json(review);
     });
 
