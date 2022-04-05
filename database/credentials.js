@@ -11,7 +11,7 @@ const config = {
   db_name: process.env.DB_NAME,
   callback_url:
     process.env.NODE_ENV === "dev"
-      ? process.env.CALLBACK_URL_DEVELOPMENT + ":" + process.env.PORT
+      ? process.env.CALLBACK_URL_DEVELOPMENT
       : process.env.CALLBACK_URL,
   oauth_client_id: process.env.OAUTH_CLIENT_ID,
   oauth_client_secret: process.env.OAUTH_CLIENT_SECRET,
